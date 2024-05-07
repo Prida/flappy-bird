@@ -31,8 +31,8 @@ let bottomPipeImg;
 
 //physics
 let velocityX = -2; //pipes moving left speed
-let velocityY = 0; //bird jump speed
-let gravity = 0.4;
+let velocityY = 0.1; //bird jump speed
+let gravity = 0.2;
 
 let gameOver = false;
 let score = 0;
@@ -106,10 +106,22 @@ function update() {
     //score
     context.fillStyle = "white";
     context.font="45px sans-serif";
-    context.fillText(score, 5, 45);
+    context.textAlign = 'center'; 
+    context.textBaseline = 'top';
+    const canvasWidth = context.canvas.width;
+    const canvasHeight = context.canvas.height;
+    context.fillText(score, 50, 45);
 
     if (gameOver) {
-        context.fillText("GAME OVER", 5, 90);
+        context.textAlign = 'center'; // Align text for horizontal centering
+        context.textBaseline = 'middle'; // Align text for vertical centering
+    
+        // Get canvas width and height
+        const canvasWidth = context.canvas.width;
+        const canvasHeight = context.canvas.height;
+    
+        // Draw text in the middle of the canvas
+        context.fillText("GAME OVER", canvasWidth / 2, canvasHeight / 2);
     }
 }
 
